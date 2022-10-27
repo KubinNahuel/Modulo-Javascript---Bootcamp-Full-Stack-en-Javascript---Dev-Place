@@ -45,14 +45,7 @@ var menu;
 var misPersonas=[];
 var persona;
 
-function ingresarPersona(){
-    let agregarDni = parseInt(prompt("agrega tu dni.."));
-    let agregarNom =prompt("agrega tu Nombre..");
-    let agregarApe =prompt("agrega tu Apellido..");
-    let agregarTel = parseInt(prompt("agrega tu Telefono.."));
-    persona= new Agenda(agregarDni, agregarNom, agregarApe, agregarTel) ;
-    misPersonas.push(persona);
-    }
+
 
     do{
         menu = prompt(" 1 Ver la matriz. \n 2 Agregar datos a la matriz. \n 3 eliminar datos de la matriz. \n 4 Buscar datos por dni.");
@@ -101,3 +94,12 @@ function ingresarPersona(){
        function eliminarFila(misPersonas,elementoEliminado){
         misPersonas.splice(elementoEliminado, 1);
        }
+
+        function ingresarPersona(){
+    let agregarDni = parseInt(prompt("agrega tu dni.."));
+    let agregarNom =prompt("agrega tu Nombre..");
+    let agregarApe =prompt("agrega tu Apellido..");
+    let agregarTel = parseInt(prompt("agrega tu Telefono.."));
+    persona= new Agenda(agregarDni, agregarNom, agregarApe, agregarTel) ;
+    misPersonas.push(persona);
+    }
