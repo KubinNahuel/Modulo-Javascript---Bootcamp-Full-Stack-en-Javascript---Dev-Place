@@ -36,7 +36,7 @@ setTelefono(){
 }
 
 mostrarAgenda(){
-    return this.dni + this.nombre + this.apellido + this.telefono;
+    return " [" + this.dni + " " + this.nombre + " " + this.apellido + " " + this.telefono+ "] ";
 }
 
 }
@@ -69,21 +69,16 @@ function ingresarPersona(){
                break;
        
            case "3":
-               let elementoEliminado = prompt(" coloca la fila que desee eliminar ");
-               misPersonas.splice(elementoEliminado, 1);
+            let elementoEliminado = prompt(" ingrese el dni a eliminar ");
+               let index= buscarDni(misPersonas,elementoEliminado);
+               eliminarFila(misPersonas,index);
+               console.log("Hemos eliminado el Dni correctamente.");
+               
                break;
        
            case "4": 
-               let buscarDni  = parseInt(prompt(" escribi el DNI que vas a buscar..."));
-             
-                for (let j = 0; j < misPersonas.length; j++){
-                     if(misPersonas[j].dni == buscarDni)   {
-                        window.alert( 'es igual al dni que buscaste ');
-                        break;
-            }  else{
-                console.log("NO ENTRA")
-            }
-        }
+               let buscarDnii  = parseInt(prompt(" escribi el DNI que vas a buscar..."));
+               console.log("Hemos encontrado tu DNI" + misPersonas[buscarDni(misPersonas,buscarDnii)].mostrarAgenda())
               break;
            case "0":
                break;
@@ -92,3 +87,17 @@ function ingresarPersona(){
                break;
        
        }}while(menu != "0" );
+
+       function buscarDni(misPersonas,buscarDnii){
+        let index=0
+        misPersonas.forEach(element=>{
+            if(element.dni==buscarDnii){
+                index=misPersonas.indexOf(element)
+              }
+        })
+        return index;
+       }
+
+       function eliminarFila(misPersonas,elementoEliminado){
+        misPersonas.splice(elementoEliminado, 1);
+       }
