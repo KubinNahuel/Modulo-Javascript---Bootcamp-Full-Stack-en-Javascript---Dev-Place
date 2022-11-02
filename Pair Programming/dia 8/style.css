@@ -1,0 +1,12 @@
+body{
+    background-color: beige;
+}
+.container{
+    margin-top: 200px;
+}
+#letraa{
+    width: 40px;
+}
+#enviar{
+    background-color: green;
+}
